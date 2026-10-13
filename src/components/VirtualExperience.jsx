@@ -5,11 +5,14 @@ import { OrbitControls, useProgress, Environment, Lightformer } from '@react-thr
 import { Maximize2, Minimize2 } from 'lucide-react'
 import Apartment from './Apartment.jsx'
 
+// Each chip is a solid two-stop gradient: the previous `colour → colour55` wash let
+// the 3D scene show through the label, which put white text as low as 2.2:1 over the
+// amber chip. These pairs keep the colour coding while holding >=5:1 with white.
 const HOTSPOTS = [
-  { label: 'Living Room', pos: [-1.24, -0.43, 0.72], color: '#3b82f6' },
-  { label: 'Sitting Area', pos: [-1.22, -0.03, -0.99], color: '#f59e0b' },
-  { label: 'Kitchen', pos: [1.81, -0.1, -0.69], color: '#a855f7' },
-  { label: 'Dining', pos: [2.3, -0.17, 0.58], color: '#06b6d4' },
+  { label: 'Living Room', pos: [-1.24, -0.43, 0.72], color: '#2563eb', deep: '#1e3a8a' },
+  { label: 'Sitting Area', pos: [-1.22, -0.03, -0.99], color: '#b45309', deep: '#78350f' },
+  { label: 'Kitchen', pos: [1.81, -0.1, -0.69], color: '#9333ea', deep: '#581c87' },
+  { label: 'Dining', pos: [2.3, -0.17, 0.58], color: '#0e7490', deep: '#164e63' },
 ]
 
 function supportsWebGL() {
@@ -219,12 +222,14 @@ export default function VirtualExperience() {
                       type="button"
                       onClick={() => focus(h.pos)}
                       className="min-h-11 rounded-sm px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-white shadow-lg transition-transform hover:-translate-y-0.5"
-                      style={{ background: `linear-gradient(135deg, ${h.color}, ${h.color}55)` }}
+                      style={{ background: `linear-gradient(135deg, ${h.color}, ${h.deep})` }}
                     >
                       {h.label}
                     </button>
                   ))}
-                  <p className="ml-auto hidden text-[10px] uppercase tracking-widest text-paper/80 sm:block">
+                  {/* Same chip treatment as the HUD/controls: the text sits over an
+                      arbitrary 3D view, so it needs its own scrim to stay legible. */}
+                  <p className="ml-auto hidden rounded-md border border-white/10 bg-black/40 px-3 py-2 text-[10px] uppercase tracking-widest text-paper/90 backdrop-blur-sm sm:block">
                     Drag to orbit · Scroll to zoom · Right-drag to pan
                   </p>
                 </div>

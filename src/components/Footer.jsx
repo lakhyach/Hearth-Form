@@ -27,20 +27,20 @@ export default function Footer() {
       <div className="absolute inset-0 bg-sage/95 backdrop-blur-2xl" />
 
       <div className="relative mx-auto max-w-[1600px] px-5 pt-24 md:px-10 lg:px-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo className="size-9" />
-            <p className="mt-5 max-w-[250px] text-sm opacity-70">{footer.blurb}</p>
+            <p className="mt-5 max-w-[250px] text-sm opacity-90">{footer.blurb}</p>
             <a
               href={`mailto:${brand.email}`}
-              className="mt-4 inline-block text-sm underline underline-offset-4 hover:text-white"
+              className="mt-4 inline-flex min-h-11 items-center text-sm underline underline-offset-4 hover:text-white"
             >
               {brand.email}
             </a>
           </div>
 
           <div>
-            <h2 className="eyebrow opacity-50">Our Newsletter</h2>
+            <h2 className="eyebrow opacity-90">Our Newsletter</h2>
             <form onSubmit={onSubmit} className="mt-5">
               <label htmlFor="newsletter" className="sr-only">
                 Your email address
@@ -53,31 +53,38 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email"
-                  className="w-full bg-transparent text-sm placeholder:text-paper/40 focus:outline-none"
+                  className="w-full bg-transparent text-sm placeholder:text-paper/70"
                 />
-                <button type="submit" aria-label="Subscribe" className="hover:text-white">
+                <button
+                  type="submit"
+                  aria-label="Subscribe"
+                  className="grid size-11 shrink-0 place-items-center hover:text-white"
+                >
                   <ArrowUpRight className="size-5" />
                 </button>
               </div>
-              <p className="mt-3 text-[11px] opacity-50">
+              <p className="mt-3 text-[11px] opacity-90">
                 Demo form — opens your email app to reach the studio.
               </p>
             </form>
             <button
               type="button"
               onClick={toTop}
-              className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] opacity-70 hover:opacity-100"
+              className="mt-6 inline-flex min-h-11 items-center gap-2 text-xs uppercase tracking-[0.2em] opacity-90 hover:opacity-100"
             >
               Back to top <ArrowUp className="size-4" />
             </button>
           </div>
 
           <nav aria-label="Website">
-            <h2 className="eyebrow opacity-50">Website</h2>
-            <ul className="mt-5 space-y-3 text-sm">
+            <h2 className="eyebrow opacity-90">Website</h2>
+            <ul className="mt-5 space-y-1 text-sm">
               {footer.website.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="opacity-80 transition-opacity hover:opacity-100">
+                  <a
+                    href={l.href}
+                    className="inline-flex min-h-11 items-center opacity-90 transition-opacity hover:opacity-100"
+                  >
                     {l.label}
                   </a>
                 </li>
@@ -86,15 +93,15 @@ export default function Footer() {
           </nav>
 
           <div>
-            <h2 className="eyebrow opacity-50">Studio</h2>
-            <p className="mt-5 text-sm opacity-80">
+            <h2 className="eyebrow opacity-90">Studio</h2>
+            <p className="mt-5 text-sm opacity-90">
               By appointment
               <br />
               Copenhagen &amp; remote
             </p>
             <a
               href={`mailto:${brand.email}`}
-              className="mt-4 inline-block text-sm underline underline-offset-4 hover:text-white"
+              className="mt-4 inline-flex min-h-11 items-center text-sm underline underline-offset-4 hover:text-white"
             >
               Enquire →
             </a>
@@ -107,7 +114,7 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-paper/10 py-8 text-xs uppercase tracking-[0.15em] text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-paper/10 py-8 text-xs uppercase tracking-[0.15em] text-paper/90 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {brand.name} · Interior Architecture Studio</span>
           <span>All rights reserved</span>
         </div>

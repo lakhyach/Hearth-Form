@@ -6,7 +6,7 @@ export default function Projects() {
     <section id="projects" className="scroll-mt-24 bg-paper px-5 py-24 text-sage md:px-10 lg:px-16">
       <div className="mx-auto max-w-[1600px]">
         <Reveal as="h2" className="text-3xl font-semibold uppercase tracking-tight md:text-4xl">
-          Selected Projects [{String(projects.length).padStart(2, '0')}]
+          Selected Projects
         </Reveal>
 
         <div className="mt-16 flex flex-col gap-24 lg:gap-40">
@@ -14,15 +14,14 @@ export default function Projects() {
             <article key={p.name} className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-6">
               <div className="md:col-span-4 lg:sticky lg:top-28 lg:self-start">
                 <h3 className="text-5xl font-normal tracking-tight lg:text-6xl">{p.name}</h3>
-                <p className="mt-5 max-w-[30ch] text-base opacity-80">{p.blurb}</p>
-                <p className="mt-8 text-[11px] uppercase tracking-[0.15em] opacity-50">
-                  {p.location}
-                  <br />
-                  {p.size}
+                <p className="mt-5 max-w-[30ch] text-base">{p.blurb}</p>
+                <p className="mt-8 text-[11px] uppercase tracking-[0.15em]">
+                  <span className="block">{p.location}</span>
+                  <span className="block whitespace-nowrap">{p.size}</span>
                 </p>
                 <a
                   href="#contact"
-                  className="mt-6 inline-block text-xs uppercase tracking-[0.2em] text-clay underline-offset-4 hover:underline"
+                  className="mt-6 inline-block py-2 text-xs uppercase tracking-[0.2em] text-[#8f4f22] underline-offset-4 hover:underline"
                 >
                   Enquire about this project →
                 </a>
@@ -38,7 +37,7 @@ export default function Projects() {
                       src={img.src}
                       alt={img.alt}
                       loading="lazy"
-                      className="aspect-[4/5] w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                      className="aspect-[4/5] w-full object-cover transition-all duration-700 [@media(hover:hover)]:grayscale [@media(hover:hover)]:group-hover:scale-[1.03] [@media(hover:hover)]:group-hover:grayscale-0"
                     />
                   </div>
                 ))}

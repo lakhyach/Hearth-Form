@@ -66,7 +66,7 @@ export default function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            className="text-paper lg:hidden"
+            className="grid size-11 place-items-center text-paper lg:hidden"
           >
             {open ? <X className="size-9" /> : <Menu className="size-9" />}
           </button>
@@ -113,7 +113,7 @@ export default function Header() {
                   </motion.li>
                 ))}
               </ul>
-              <p className="mt-auto text-xs uppercase tracking-[0.2em] text-paper/40">
+              <p className="mt-auto text-xs uppercase tracking-[0.2em] text-paper/70">
                 © {new Date().getFullYear()} {brand.name} · Interior Architecture Studio
               </p>
             </motion.nav>

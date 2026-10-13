@@ -41,8 +41,9 @@ export default function StyleGallery() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-roledescription="carousel"
-      aria-label="Design styles"
     >
+      <h2 className="sr-only">Design styles</h2>
+
       {/* Blurred backdrop of the active image */}
       <div
         aria-hidden
@@ -60,7 +61,7 @@ export default function StyleGallery() {
             aria-label={`Previous: ${prevTitle}`}
             className="hidden w-1/5 shrink-0 overflow-hidden rounded-sm opacity-30 grayscale transition duration-500 hover:opacity-60 md:block"
           >
-            <img src={styles[(i - 1 + n) % n].src} alt="" className="h-[360px] w-full object-cover" />
+            <img src={styles[(i - 1 + n) % n].src} alt="" loading="lazy" className="h-[360px] w-full object-cover" />
           </button>
 
           {/* center */}
@@ -69,6 +70,7 @@ export default function StyleGallery() {
               key={active.src}
               src={active.src}
               alt={active.alt}
+              loading="lazy"
               className="h-[420px] w-full object-cover saturate-[1.3] md:h-[540px]"
             />
             <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-6">
@@ -83,7 +85,7 @@ export default function StyleGallery() {
             aria-label={`Next: ${nextTitle}`}
             className="hidden w-1/5 shrink-0 overflow-hidden rounded-sm opacity-30 grayscale transition duration-500 hover:opacity-60 md:block"
           >
-            <img src={styles[(i + 1) % n].src} alt="" className="h-[360px] w-full object-cover" />
+            <img src={styles[(i + 1) % n].src} alt="" loading="lazy" className="h-[360px] w-full object-cover" />
           </button>
         </div>
 
@@ -92,7 +94,7 @@ export default function StyleGallery() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className="group flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
+            className="group flex min-h-11 items-center gap-2 px-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
           >
             <ChevronLeft className="size-4" />
             <span className="hidden md:inline">{prevTitle}</span>
@@ -109,7 +111,7 @@ export default function StyleGallery() {
           <button
             type="button"
             onClick={() => go(1)}
-            className="group flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
+            className="group flex min-h-11 items-center gap-2 px-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
           >
             <span className="hidden md:inline">{nextTitle}</span>
             <ChevronRight className="size-4" />

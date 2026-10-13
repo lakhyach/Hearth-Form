@@ -19,13 +19,15 @@ export const nav = [
 export const hero = {
   wordmark: 'HEARTH & FORM',
   left: 'Interior Architecture Studio ®',
-  right: 'Living spaces for considered living',
+  right: 'Interiors for considered living',
+  // `alt` describes the photograph for screen readers; `caption` is the short label
+  // shown on screen. Both must match what the image actually depicts.
   slides: [
-    { src: '/images/hero-1.jpg', alt: 'Sunlit living room with a cream linen sofa and sage green wall' },
-    { src: '/images/hero-2.jpg', alt: 'Dining area with an oak table and glass pendant lights' },
-    { src: '/images/hero-3.jpg', alt: 'Open-plan kitchen with sage cabinetry and a stone island' },
-    { src: '/images/hero-4.jpg', alt: 'Serene bedroom with linen bedding and soft morning light' },
-    { src: '/images/hero-5.jpg', alt: 'Reading nook with a boucle armchair beside an arched window' },
+    { src: '/images/hero-1.jpg', alt: 'Living room with a grey fabric sofa, tan leather poufs and a brass arc lamp', caption: 'Sunlit living room' },
+    { src: '/images/hero-2.jpg', alt: 'Living room with a cream sectional, sage gallery wall and rattan armchair', caption: 'Sage gallery wall' },
+    { src: '/images/hero-3.jpg', alt: 'Modern house exterior at dusk with a glazed living wing opening to the garden', caption: 'Facade at dusk' },
+    { src: '/images/hero-4.jpg', alt: 'Sitting room with a cream sofa, teal cushions and abstract art between two windows', caption: 'Teal and cream' },
+    { src: '/images/hero-5.jpg', alt: 'Open-plan dining and living space with a red armchair and transparent chairs', caption: 'Open-plan, red accent' },
   ],
 }
 
@@ -45,20 +47,20 @@ export const about = {
 }
 
 export const styles = [
-  { title: 'Bold Choices', src: '/images/style-1.jpg', alt: 'Living room with rich colour and layered texture' },
-  { title: 'Modern Living', src: '/images/style-2.jpg', alt: 'Clean modern interior with warm neutral tones' },
-  { title: 'Calm Spaces', src: '/images/style-3.jpg', alt: 'Quiet minimal bedroom in soft natural light' },
+  { title: 'Bold Choices', src: '/images/style-1.jpg', alt: 'Reading corner with a mustard armchair, brass floor lamp and framed geometric print' },
+  { title: 'Modern Living', src: '/images/style-2.jpg', alt: 'Open-plan living room with a grey sectional, timber feature wall and kitchen beyond' },
+  { title: 'Calm Spaces', src: '/images/style-3.jpg', alt: 'Bright living room with beige sofas, teal cushions and a fireplace in the next room' },
 ]
 
 export const projects = [
   {
     name: 'Alder House',
-    blurb: 'An intimate apartment composed around stillness, oak and natural light.',
+    blurb: 'A light-filled home composed around stillness, oak and natural light.',
     location: 'Frederiksberg, Copenhagen',
     size: '72 m²',
     images: [
-      { src: '/images/proj-1a.jpg', alt: 'Alder House bathroom in stone and warm light' },
-      { src: '/images/proj-1b.jpg', alt: 'Alder House detail with tactile materials' },
+      { src: '/images/proj-1a.jpg', alt: 'Living room with grey sofas, a floating oak staircase and a golden retriever' },
+      { src: '/images/proj-1b.jpg', alt: 'Bathroom with a glass shower, grey vanity and white stone counter' },
     ],
   },
   {
@@ -67,31 +69,31 @@ export const projects = [
     location: 'Norrmalm, Stockholm',
     size: '58 m²',
     images: [
-      { src: '/images/proj-2a.jpg', alt: 'Marlow Loft kitchen in muted green' },
-      { src: '/images/proj-2b.jpg', alt: 'Marlow Loft dining corner' },
+      { src: '/images/proj-2a.jpg', alt: 'Kitchen with handleless white cabinets, grey walls and a marble island' },
+      { src: '/images/proj-2b.jpg', alt: 'Snug with a pale grey sofa, ochre and indigo cushions and a framed cityscape' },
     ],
   },
   {
     name: 'Sorrel Flat',
-    blurb: 'A compact home with comforting tones and clever, generous zoning.',
+    blurb: 'A restful home with comforting tones and quiet, generous corners.',
     location: 'Amager, Copenhagen',
     size: '54 m²',
     images: [
-      { src: '/images/proj-3a.jpg', alt: 'Sorrel Flat bedroom in soft linen' },
-      { src: '/images/proj-3b.jpg', alt: 'Sorrel Flat reading corner' },
+      { src: '/images/proj-3a.jpg', alt: 'Bedroom with white bedding, a sheep print and a black bench at the foot' },
+      { src: '/images/proj-3b.jpg', alt: 'Bedroom with a linen bed, armchair by the window and a floral rug' },
     ],
   },
 ]
 
 export const services = {
-  eyebrow: 'Our Services [04]',
+  eyebrow: 'Our Services',
   intro:
     'Four design packages tailored to your needs, goals and project stage — from space ' +
     'planning to full, turnkey realisation.',
   packages: [
     {
       name: 'Layout Planning',
-      price: '$45 / m²',
+      price: '€45 / m²',
       includes: [
         'Site visit and measured survey',
         '3–4 planning options tailored to your lifestyle',
@@ -101,17 +103,17 @@ export const services = {
     },
     {
       name: 'Technical Project',
-      price: '$55 / m²',
+      price: '€55 / m²',
       includes: ['Everything in Layout Planning', 'Full technical documentation for the builder'],
     },
     {
       name: 'Concept & Technical',
-      price: '$65 / m²',
+      price: '€65 / m²',
       includes: ['Everything in Technical Project', 'Visual moodboards and colour & material palettes'],
     },
     {
       name: 'Full Design & Realisation',
-      price: '$95 / m²',
+      price: '€95 / m²',
       includes: [
         'Everything in Concept & Technical',
         'Photorealistic 3D visualisation of every room',
@@ -144,7 +146,7 @@ export const testimonials = [
     author: 'Ola & Mette H.',
     place: 'Copenhagen',
     image: '/images/client-1.jpg',
-    alt: 'Warm living room from the Copenhagen project',
+    alt: 'Kitchen with dark green cabinets, marble counters and oak floors',
   },
   {
     quote: 'I finally enjoy coming home.',
@@ -154,7 +156,7 @@ export const testimonials = [
     author: 'Sofia L.',
     place: 'Stockholm',
     image: '/images/client-2.jpg',
-    alt: 'Dining corner from the Stockholm project',
+    alt: 'Living corner with a pale grey sofa and patterned cushions',
   },
   {
     quote: 'Calm, capable and genuinely collaborative.',
@@ -163,8 +165,8 @@ export const testimonials = [
       'drawings made our builder’s job easy, and the finished space is even better than the renders.',
     author: 'Anders K.',
     place: 'Aarhus',
-    image: '/images/client-1.jpg',
-    alt: 'Interior detail from the Aarhus project',
+    image: '/images/style-2.jpg',
+    alt: 'Open-plan living room with a grey sectional and timber feature wall',
   },
 ]
 

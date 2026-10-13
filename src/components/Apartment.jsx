@@ -25,5 +25,3 @@ export default function Apartment({ size = 6 }) {
     </Center>
   )
 }
-
-useGLTF.preload('/apartment.glb')

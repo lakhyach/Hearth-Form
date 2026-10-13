@@ -40,7 +40,7 @@ export default function Services() {
                 <h3 className="text-xl font-light md:text-2xl">{pkg.name}</h3>
                 <span className="shrink-0 text-xl italic">{pkg.price}</span>
               </div>
-              <p className="mt-4 text-xs uppercase tracking-[0.2em] opacity-50">Includes</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.2em] opacity-90">Includes</p>
               <ul className="mt-2 space-y-1.5 text-sm opacity-90">
                 {pkg.includes.map((line) => (
                   <li key={line} className="flex gap-2">

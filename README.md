@@ -8,6 +8,8 @@ brand with its own name, identity, wording, logo, imagery, and implementation.
 
 > **Live:** https://hearth-and-form.vercel.app
 
+![Hearth & Form hero](./docs/screenshot-hero.jpg)
+
 ## Tech stack
 
 - [Vite](https://vitejs.dev/) + [React 18](https://react.dev/)
@@ -15,7 +17,7 @@ brand with its own name, identity, wording, logo, imagery, and implementation.
 - [Framer Motion](https://www.framer.com/motion/) for scroll/UI motion
 - [React Three Fiber](https://r3f.docs.pmnd.rs/) + [drei](https://github.com/pmndrs/drei) + [three.js](https://threejs.org/) for the 3D scene
 - [Lucide](https://lucide.dev/) icons
-- Self-hosted [Rubik](https://rsms.me/inter/) typeface via `@fontsource`
+- Self-hosted [Rubik](https://fonts.google.com/specimen/Rubik) typeface (SIL OFL 1.1) via `@fontsource`
 
 ## Sections
 
@@ -23,6 +25,12 @@ Hero (wordmark + crossfading interiors) · Studio/About · Style gallery (auto-a
 · Selected projects (grayscale→colour on hover) · Services (glass cards) · How we work
 (hover-invert cells) · **Virtual Experience** (interactive 3D apartment with room
 hotspots, orbit + zoom, live camera HUD, fullscreen) · Testimonials · Footer.
+
+![Interactive 3D apartment walkthrough](./docs/screenshot-3d.jpg)
+
+Responsive from 320 px up, with a full-screen mobile menu:
+
+![Mobile layout](./docs/screenshot-mobile.jpg)
 
 ## Getting started
 
@@ -56,7 +64,7 @@ without attribution. Attribution is nevertheless provided in `CREDITS.md`.
 
 ## Typeface
 
-Rubik, via [`@fontsource/rubik`](https://github.com/fontsource/font-srcols), is licensed
+Rubik, via [`@fontsource/rubik`](https://github.com/fontsource/fontsource), is licensed
 under the SIL Open Font License 1.1.
 
 ## Honesty notes
@@ -70,11 +78,25 @@ under the SIL Open Font License 1.1.
 
 ## Accessibility & performance
 
-- Semantic landmarks, a skip link, single H1, descriptive alt text, visible focus
-  outlines, `aria-current` on the 3D room buttons, and `prefers-reduced-motion` support
-  (instant anchors, reduced decorative animation).
-- Self-hosted fonts (no third-party render-blocking), preloaded LCP hero image, lazy
-  3D section, content-visibility on below-fold sections.
+- Landmarks (`header`/`main`/`footer`), a skip link, exactly one `h1`, a section `h2`
+  per block (the style gallery's is visually hidden), descriptive `alt` text that
+  matches each photograph, `aria-label`/`aria-expanded` on the menu and viewer
+  controls, and a visible `:focus-visible` outline token used site-wide.
+- `prefers-reduced-motion` is honoured by the hero crossfade, the gallery autoplay,
+  scroll reveals, the testimonial carousel and the CSS animation/transition reset.
+- Grayscale photography effects are gated behind `@media (hover: hover)`, so touch
+  devices never receive a permanently desaturated image.
+- Text colours meet WCAG 2.1 AA against their backgrounds (the sage-on-paper palette
+  leaves little headroom, so informational copy is not faded with `opacity`).
+- Self-hosted fonts (no third-party render-blocking requests), `preload`ed LCP hero
+  image with the remaining slides fetched after `load`, `loading="lazy"` photography,
+  and the 3D canvas — plus its 5.4 MB `.glb` — mounted only once the section nears the
+  viewport.
+
+Measured on the production build (`vite preview`, desktop): zero console errors, every
+network request `200`, `documentElement` horizontal overflow `0px` at 1440/1280/1024/
+834/768/640/414/390/320 CSS px, and the `.glb` absent from the resource timeline until
+the section is scrolled into view.
 
 ## Credits
 

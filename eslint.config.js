@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import reactPlugin from 'eslint-plugin-react'
 
 export default [
-  { ignores: ['dist', 'node_modules'] },
+  { ignores: ['dist', 'node_modules', 'temp', 'qa-screenshots'] },
   js.configs.recommended,
   {
     // Build-time asset scripts run in Node, not the browser.

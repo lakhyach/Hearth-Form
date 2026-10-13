@@ -28,12 +28,18 @@ the authoritative, verifiable download log:
 - `scripts/retry-images.mjs` (alternate IDs used when a first choice was unavailable)
 - `scripts/verify-credits.mjs` (content-matches each local file back to its source ID)
 
+`verify-credits.mjs` byte-matches most files, but Unsplash's CDN re-encodes JPEGs on
+download, so a handful of local files no longer hash to a single candidate ID; the
+scripts above remain the record of what was requested.
+
 `public/og-image.jpg` is a copy of `public/images/hero-1.jpg` (same Unsplash source).
 
 ## Typeface — SIL Open Font License 1.1
 
-- **Rubik**, self-hosted via [`@fontsource/rubik`](https://github.com/fontsource/font-srcols).
-  OFL-1.1.
+- **Rubik**, designed by Hubert & Fischer, licensed under the SIL Open Font
+  License 1.1 ([specimen](https://fonts.google.com/specimen/Rubik),
+  [source](https://github.com/google/fonts/tree/main/ofl/rubik)).
+  Self-hosted on this site via [`@fontsource/rubik`](https://github.com/fontsource/fontsource).
 
 ## Icons — ISC
 

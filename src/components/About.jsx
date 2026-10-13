@@ -12,7 +12,7 @@ export default function About() {
           <Reveal delay={0.1} className="mt-8 overflow-hidden rounded-lg">
             <img
               src="/images/hero-5.jpg"
-              alt="Reading nook with a boucle armchair beside an arched window"
+              alt='Open-plan dining and living space with a red armchair and transparent chairs'
               className="aspect-[4/3] w-full object-cover lg:aspect-[3/4]"
               loading="lazy"
             />
@@ -28,7 +28,7 @@ export default function About() {
             {about.stats.map((s, idx) => (
               <Reveal key={s.label} delay={idx * 0.06}>
                 <dt className="text-4xl font-medium tracking-tighter md:text-5xl">{s.value}</dt>
-                <dd className="mt-2 text-sm opacity-70 md:text-base">{s.label}</dd>
+                <dd className="mt-2 text-sm md:text-base">{s.label}</dd>
               </Reveal>
             ))}
           </dl>

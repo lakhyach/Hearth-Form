@@ -5,6 +5,7 @@ import { hero } from '../data/site.js'
 
 export default function Hero() {
   const [i, setI] = useState(0)
+  const [rest, setRest] = useState(false)
   const reduce = useReducedMotion()
 
   useEffect(() => {
@@ -12,6 +13,17 @@ export default function Hero() {
     const id = setInterval(() => setI((v) => (v + 1) % hero.slides.length), 6000)
     return () => clearInterval(id)
   }, [reduce])
+
+  // Only the first slide may compete with the LCP paint; the rest are pulled in
+  // once the page has finished loading.
+  useEffect(() => {
+    const show = () => setRest(true)
+    if (document.readyState === 'complete') show()
+    else {
+      window.addEventListener('load', show, { once: true })
+      return () => window.removeEventListener('load', show)
+    }
+  }, [])
 
   return (
     <section id="top" className="relative h-[100svh] min-h-[600px] overflow-hidden bg-pine text-paper">
@@ -23,7 +35,10 @@ export default function Hero() {
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[1600ms] ease-in-out ${
             idx === i ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ backgroundImage: `url(${s.src})`, filter: 'saturate(1.15)' }}
+          style={{
+            backgroundImage: idx === 0 || rest ? `url(${s.src})` : undefined,
+            filter: 'saturate(1.15)',
+          }}
         />
       ))}
       <div className="absolute inset-0 bg-pine/55" />
@@ -48,8 +63,8 @@ export default function Hero() {
             View our work
             <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
           </a>
-          <p className="hidden text-xs uppercase tracking-[0.25em] text-paper/60 sm:block">
-            {hero.slides[i].alt}
+          <p className="hidden text-xs uppercase tracking-[0.25em] text-paper/80 sm:block">
+            {hero.slides[i].caption}
           </p>
         </div>
       </div>

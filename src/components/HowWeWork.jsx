@@ -15,11 +15,11 @@ export default function HowWeWork() {
               key={step.title}
               className="group border-b border-r border-sage/10 p-8 transition-colors duration-300 hover:bg-sage hover:text-paper lg:p-10"
             >
-              <span className="text-4xl font-light opacity-30 transition-opacity group-hover:opacity-60 lg:text-5xl">
+              <span className="text-4xl font-light opacity-75 transition-opacity group-hover:opacity-100 lg:text-5xl">
                 {String(idx + 1).padStart(2, '0')}
               </span>
               <h3 className="mt-6 text-xl font-medium lg:text-2xl">{step.title}</h3>
-              <ul className="mt-4 space-y-2 text-sm opacity-70">
+              <ul className="mt-4 space-y-2 text-sm">
                 {step.items.map((it) => (
                   <li key={it} className="flex gap-2">
                     <span aria-hidden className="mt-[0.55em] size-1 shrink-0 rounded-full bg-current" />

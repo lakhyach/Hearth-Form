@@ -15,7 +15,12 @@ export default function Footer() {
     )} to the Hearth & Form newsletter.`
   }
 
-  const toTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+  // Smooth scrolling is opt-out: honour prefers-reduced-motion, which the CSS
+  // scroll-behavior rule cannot override for a scripted scrollTo().
+  const toTop = () => {
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' })
+  }
 
   return (
     <footer id="contact" className="relative scroll-mt-24 overflow-hidden text-paper">

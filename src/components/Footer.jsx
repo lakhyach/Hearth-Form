@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-paper/10 py-8 text-xs uppercase tracking-[0.15em] text-paper/40 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} {brand.name} Interior Studio</span>
+          <span>© {new Date().getFullYear()} {brand.name} · Interior Architecture Studio</span>
           <span>All rights reserved</span>
         </div>
       </div>

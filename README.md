@@ -6,7 +6,7 @@ typography, the calm warm palette, scroll reveals, the project/approach/service
 interactions, and an interactive 3D apartment walkthrough — but as a fully distinct
 brand with its own name, identity, wording, logo, imagery, and implementation.
 
-> **Live:** _(URL recorded in the project README footer / deployment notes below)_
+> **Live:** https://hearth-and-form.vercel.app
 
 ## Tech stack
 

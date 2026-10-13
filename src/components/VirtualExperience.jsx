@@ -100,7 +100,7 @@ export default function VirtualExperience() {
     <section className="bg-zinc-800 px-5 py-24 text-paper md:px-10 md:py-32 lg:px-16">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-6 flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-paper/40 lg:text-xs">
-          <span>Virtual Experience [01]</span>
+          <span>Virtual Experience</span>
           <span>Interactive 3D</span>
         </div>
 

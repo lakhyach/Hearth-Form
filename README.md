@@ -49,11 +49,15 @@ npm run lint       # ESLint
 - **License:** **CC-BY 4.0** (attribution required; commercial use permitted). Attribution
   is shown on the site at the 3D section.
 - The source `.glb` was optimised with `@gltf-transform` (WebP textures, dedup, weld,
-  prune) from ~10 MB to ~5.4 MB, keeping Draco compression **off** so the browser needs
-  no extra decoder.
-- The scene auto-frames the model (bounding-box normalisation), provides a loading
-  progress bar, a no-WebGL fallback image, respects `prefers-reduced-motion`, and reserves
-  an aspect-ratio box so there is no layout shift.
+  prune) from ~10 MB to ~5.4 MB. Draco compression is **off**, so no geometry decoder is
+  needed; textures are WebP, which makes the file require the `EXT_texture_webp`
+  extension (supported by all current Chrome, Edge, Firefox and Safari builds). A client
+  that cannot decode it hits the error boundary and gets the labelled fallback image.
+- The scene auto-frames the model (bounding-box normalisation), shows a loading progress
+  bar, and falls back to a labelled photograph when WebGL is unavailable. The viewer box
+  has a fixed height per breakpoint, so mounting the canvas causes no layout shift.
+- Nothing in the 3D view moves by itself: the camera only animates when a room button is
+  pressed, and the surrounding scroll reveals honour `prefers-reduced-motion`.
 
 ## Imagery
 
@@ -83,7 +87,8 @@ under the SIL Open Font License 1.1.
   matches each photograph, `aria-label`/`aria-expanded` on the menu and viewer
   controls, and a visible `:focus-visible` outline token used site-wide.
 - `prefers-reduced-motion` is honoured by the hero crossfade, the gallery autoplay,
-  scroll reveals, the testimonial carousel and the CSS animation/transition reset.
+  scroll reveals, the testimonial carousel, the footer "back to top" scroll and the CSS
+  animation/transition reset.
 - Grayscale photography effects are gated behind `@media (hover: hover)`, so touch
   devices never receive a permanently desaturated image.
 - Text colours meet WCAG 2.1 AA against their backgrounds (the sage-on-paper palette

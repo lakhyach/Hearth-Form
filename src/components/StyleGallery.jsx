@@ -97,7 +97,9 @@ export default function StyleGallery() {
             className="group flex min-h-11 items-center gap-2 px-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
           >
             <ChevronLeft className="size-4" />
-            <span className="hidden md:inline">{prevTitle}</span>
+            {/* Kept in the accessibility tree below md, where it is visually hidden, so
+                the icon-only button still has a discernible name (WCAG 4.1.2). */}
+            <span className="sr-only md:not-sr-only md:inline">{prevTitle}</span>
           </button>
 
           <div className="h-1 w-40 overflow-hidden rounded-full bg-white/15">
@@ -113,7 +115,7 @@ export default function StyleGallery() {
             onClick={() => go(1)}
             className="group flex min-h-11 items-center gap-2 px-2 text-xs uppercase tracking-[0.3em] text-paper/60 transition-colors hover:text-paper"
           >
-            <span className="hidden md:inline">{nextTitle}</span>
+            <span className="sr-only md:not-sr-only md:inline">{nextTitle}</span>
             <ChevronRight className="size-4" />
           </button>
         </div>
